@@ -22,7 +22,7 @@
 
 	<!-- Custom decoration -->
 	<title>Welcome to Firebase Hosting</title>
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 
 	<!-- References Firebase libraries (Auth & Firestore) -->
 	<script defer src="/__/firebase/13.2.0/firebase-app-compat.js"></script>
@@ -35,15 +35,8 @@
 
 	<!-- Supabase Storage library & config -->
 	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-	<script defer src="supabase.js"></script>
+	<script defer src="js/supabase.js"></script>
 
-	<script defer src="users/islogin.js"></script>
-	<script>
-		window.addEventListener('load', () => {
-			validar();
-			iniciarControlInactividad();
-		});
-	</script>
 </head>
 <body class="container">
 	<header class="header row">
@@ -88,41 +81,15 @@
 	</header>
 
 	<main class="row">
-		<h4 class="formatHead">Modificar Signo Zodiacal</h4>
+		<h4>Autenticando Usuario</h4>
 		<div>
-			<input type="hidden" id="txtId">
+			<label for="txtEmail">Correo electrónico:</label><br>
+			<input type="text" id="txtEmail" required autofocus><br><br>
 
-			<label for="txtPosic">Posición:</label><br>
-			<input type="number" id="txtPosic" required><br><br>
-
-			<label for="txtSigno">Signo:</label><br>
-			<input type="text" id="txtSigno" required><br><br>
-
-			<label for="txtRango">Rango:</label><br>
-			<input type="text" id="txtRango" required><br><br>
-
-			<label for="selElemento">Elemento:</label><br>
-			<select id="selElemento" required>
-				<option value="Fuego">Fuego</option>
-				<option value="Tierra">Tierra</option>
-				<option value="Aire">Aire</option>
-				<option value="Agua">Agua</option>
-			</select><br><br>
-
-			<label for="txtAstro">Astro celeste:</label><br>
-			<input type="text" id="txtAstro" required><br><br>
-
-			<label for="txtPiedra">Piedra preciosa:</label><br>
-			<input type="text" id="txtPiedra" required><br><br>
-
-			<label>Imagen actual:</label><br>
-			<img id="imgActual" src="" width="120" alt="Vista previa"><br><br>
-
-			<label for="txtArchi">Cambiar imagen (opcional):</label><br>
-			<input type="file" id="txtArchi" accept="image/*">
+			<label for="txtContra">Contraseña:</label><br>
+			<input type="password" id="txtContra" required>
 			<br><br>
-			<input type="button" id="btnUpdate" value="Actualizar Signo">
-			<input type="button" value="Cancelar" onclick="document.location.href='lista.html'">
+			<input type="button" id="btnLogin" name="btnLogin" value="Autenticar Usuario">
 		</div>
 	</main>
 
@@ -133,6 +100,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 			crossorigin="anonymous"></script>
-	<script defer src="zodiac/editsigno.js"></script>
+	<script defer src="js/users/login.js"></script>
 </body>
 </html>
