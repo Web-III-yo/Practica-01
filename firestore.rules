@@ -1,0 +1,78 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function validUserProfile(data) {
+      return data.keys().hasAll([
+               'idemp',
+               'usuario',
+               'email',
+               'fechaCreacion',
+               'ultAcceso'
+             ])
+          && data.keys().hasOnly([
+               'idemp',
+               'usuario',
+               'email',
+               'fechaCreacion',
+               'ultAcceso'
+             ])
+          && data.idemp is string
+          && data.usuario is string
+          && data.email is string
+          && data.fechaCreacion is timestamp
+          && data.ultAcceso is timestamp;
+    }
+
+    function validZodiac(data) {
+      return data.keys().hasAll([
+               'posic',
+               'signo',
+               'rango',
+               'elemento',
+               'astro',
+               'piedra',
+               'url'
+             ])
+          && data.keys().hasOnly([
+               'posic',
+               'signo',
+               'rango',
+               'elemento',
+               'astro',
+               'piedra',
+               'url'
+             ])
+          && data.posic is int
+          && data.signo is string
+          && data.rango is string
+          && data.elemento in ['Fuego', 'Tierra', 'Aire', 'Agua']
+          && data.astro is string
+          && data.piedra is string
+          && data.url is string;
+    }
+
+    match /datosUsuarios/{documentId} {
+      allow read: if request.auth != null
+                  && resource.data.idemp == request.auth.uid;
+      allow create: if request.auth != null
+                    && request.resource.data.idemp == request.auth.uid
+                    && request.resource.data.email == request.auth.token.email
+                    && validUserProfile(request.resource.data);
+      allow update: if request.auth != null
+                    && resource.data.idemp == request.auth.uid
+                    && validUserProfile(request.resource.data)
+                    && request.resource.data.diff(resource.data)
+                         .affectedKeys().hasOnly(['ultAcceso'])
+                    && request.resource.data.diff(resource.data)
+                         .affectedKeys().hasAll(['ultAcceso']);
+      allow delete: if false;
+    }
+
+    match /datosZodiaco/{documentId} {
+      allow read: if request.auth != null;
+      allow create, update: if request.auth != null
+                            && validZodiac(request.resource.data);
+      allow delete: if false;
+    }
+  }
+}
