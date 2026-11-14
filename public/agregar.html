@@ -37,10 +37,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 	<script defer src="js/supabase.js"></script>
 
-	<script defer src="users/islogin.js"></script>
+	<script defer src="js/users/islogin.js"></script>
 	<script>
 		window.addEventListener('load', () => {
 			validar();
+			iniciarControlInactividad();
 		});
 	</script>
 </head>
@@ -87,7 +88,36 @@
 	</header>
 
 	<main class="row">
-		
+		<h4 class="formatHead">Almacenar Imágenes con datos</h4>
+		<div>
+			<label for="txtPosic">Posición:</label><br>
+			<input type="number" id="txtPosic" required><br><br>
+
+			<label for="txtSigno">Signo:</label><br>
+			<input type="text" id="txtSigno" required><br><br>
+
+			<label for="txtRango">Rango:</label><br>
+			<input type="text" id="txtRango" required><br><br>
+
+			<label for="selElemento">Elemento:</label><br>
+			<select id="selElemento" required>
+				<option value="Fuego">Fuego</option>
+				<option value="Tierra">Tierra</option>
+				<option value="Aire">Aire</option>
+				<option value="Agua">Agua</option>
+			</select><br><br>
+
+			<label for="txtAstro">Astro celeste:</label><br>
+			<input type="text" id="txtAstro" required><br><br>
+
+			<label for="txtPiedra">Piedra preciosa:</label><br>
+			<input type="text" id="txtPiedra" required><br><br>
+
+			<label for="txtArchi">File:</label><br>
+			<input type="file" id="txtArchi" accept="image/*" required>
+			<br><br>
+			<input type="button" id="btnLoad" name="btnLoad" value="Insert">
+		</div>
 	</main>
 
 	<footer class="row">
@@ -97,5 +127,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 			crossorigin="anonymous"></script>
+	<script defer src="js/zodiac/addsigno.js"></script>
 </body>
 </html>
