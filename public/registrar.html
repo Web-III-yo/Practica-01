@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 	<!-- Visualization environment -->
 	<meta charset="UTF-8">
@@ -21,7 +21,7 @@
 	<script src="https://kit.fontawesome.com/2c7bfef965.js" crossorigin="anonymous"></script>
 
 	<!-- Custom decoration -->
-	<title>Welcome to Firebase Hosting</title>
+	<title>Zodiaco | Crear cuenta</title>
 	<link rel="stylesheet" href="css/style.css">
 
 	<!-- References Firebase libraries (Auth & Firestore) -->
@@ -42,7 +42,7 @@
 	<header class="header row">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Navbar</a>
+				<a class="navbar-brand" href="index.html">Zodiaco</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
 						aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -80,9 +80,16 @@
 		</nav>
 	</header>
 
-	<main class="row">
-		<h4>Sign up</h4>
-		<div>
+	<main class="row page-main auth-main">
+		<section class="auth-art">
+			<p class="eyebrow">Tu viaje comienza aquí</p>
+			<h1>Descubre tu universo zodiacal</h1>
+			<p>Crea tu cuenta para guardar y explorar la información de cada signo.</p>
+		</section>
+		<section class="auth-card">
+			<h4>Crear cuenta</h4>
+			<p class="page-lead">Completa tus datos para registrarte.</p>
+			<div class="form-fields">
 			<label for="txtNombre">Nombre:</label><br>
 			<input type="text" id="txtNombre" required><br><br>
 
@@ -93,11 +100,12 @@
 			<input type="password" id="txtContra" required>
 			<br><br>
 			<input type="button" id="btnInsUser" name="btnInsUser" value="Insertar Usuario">
-		</div>
+			</div>
+		</section>
 	</main>
 
-	<footer class="row">
-
+	<footer class="row site-footer">
+		<p>Tu espacio para descubrir el zodiaco</p>
 	</footer>
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
