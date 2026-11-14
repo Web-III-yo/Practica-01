@@ -15,7 +15,7 @@ db.collection("datosZodiaco").orderBy('posic', 'asc').get()
 		query.forEach(function (doc) {
 			const datos = doc.data();
 			const tarjeta = document.createElement('div');
-			tarjeta.className = 'divAnuncio m-3';
+			tarjeta.className = 'divAnuncio';
 			tarjeta.tabIndex = 0;
 			tarjeta.setAttribute('role', 'button');
 			tarjeta.addEventListener('click', function () {
